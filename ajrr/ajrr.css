@@ -1,0 +1,120 @@
+/* =====================
+   GLOBAL THEME
+===================== */
+
+:root {
+  --bg-dark: hsl(260, 40%, 10%);
+  --text-light: hsl(0, 0%, 98%);
+  --primary: hsl(25, 90%, 65%);
+  --accent: hsl(280, 60%, 40%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+  min-height: 100vh;
+}
+
+/* =====================
+   HERO SECTION
+===================== */
+
+.hero {
+  min-height: 100vh;
+  position: relative;
+  background:
+    radial-gradient(circle at center, rgba(255, 140, 80, 0.2), transparent 60%),
+    linear-gradient(to bottom, rgba(26, 11, 46, 0.8), rgba(26, 11, 46, 1));
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* =====================
+   HEADER / NAV
+===================== */
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 48px;
+}
+
+.logo img {
+  height: 50px;
+}
+
+/* Navigation */
+.nav ul {
+  list-style: none;
+  display: flex;
+  gap: 32px;
+}
+
+.nav a {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav a:hover {
+  color: white;
+}
+
+/* underline animation */
+.nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 1px;
+  background-color: var(--primary);
+  transition: width 0.3s ease;
+}
+
+.nav a:hover::after {
+  width: 100%;
+}
+
+/* =====================
+   HERO TITLE
+===================== */
+
+.hero-title {
+  text-align: center;
+}
+
+.hero-title h1 {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(4rem, 12vw, 10rem);
+  letter-spacing: 0.2em;
+  background: linear-gradient(to bottom, white, rgba(255,255,255,0.6));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 10px 40px rgba(0,0,0,0.6);
+}
+
+/* =====================
+   FOOTER
+===================== */
+
+.footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 12px;
+  color: rgba(255,255,255,0.6);
+}

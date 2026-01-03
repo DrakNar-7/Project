@@ -1,0 +1,115 @@
+/* =====================
+   QURAN ONLY THEME
+===================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: radial-gradient(circle at top, #1c1433, #0b0815);
+  color: white;
+  font-family: 'Amiri', serif;
+  min-height: 100vh;
+}
+
+/* =====================
+   SIMPLE TOP NAV
+===================== */
+
+nav {
+  width: 100%;
+  background: linear-gradient(90deg, #2a1f3d, #1b142b);
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 48px;
+  padding: 18px 0;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 12px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #f4a261;
+}
+
+/* =====================
+  MAIN LAYOUT
+===================== */
+main {
+  padding: 60px 20px;
+  display: flex;
+  justify-content: center;
+  float: right;
+}
+
+.quran-page {
+  max-width: 900px;
+  width: 100%;
+  padding: 80px 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+/* =====================
+  TITLE
+===================== */
+
+.quran-page h1 {
+  margin-right: 350px;
+  font-size: 3rem;
+  margin-bottom: 40px;
+  letter-spacing: 0.2em;
+  order: 1;
+}
+
+/* =====================
+  SELECT
+===================== */
+
+#surah-select {
+  margin-right: 350px;
+  padding: 12px 20px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: none;
+  background: #1c162d;
+  color: white;
+  margin-bottom: 50px;
+  order: 2;
+}
+
+/* =====================
+  AYAH TEXT
+===================== */
+
+.ayahs {
+  text-align: right;
+  font-size: 1.8rem;
+  line-height: 3;
+  order: 3;
+}
+
+.ayahs p {
+  margin-bottom: 24px;
+}
+
+.ayahs span {
+  color: #f4a261;
+  font-size: 1.2rem;
+  margin-left: 8px;
+}
+
