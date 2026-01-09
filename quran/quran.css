@@ -9,10 +9,12 @@
 }
 
 body {
+  /* Using your specific site colors */
   background: radial-gradient(circle at top, #1c1433, #0b0815);
   color: white;
   font-family: 'Amiri', serif;
   min-height: 100vh;
+  line-height: 1.6;
 }
 
 /* =====================
@@ -28,15 +30,15 @@ nav {
   list-style: none;
   display: flex;
   justify-content: center;
-  gap: 48px;
-  padding: 18px 0;
+  gap: 24px; /* Reduced gap for mobile compatibility */
+  padding: 18px 10px;
 }
 
 .nav-links a {
   text-decoration: none;
   color: rgba(255, 255, 255, 0.85);
-  font-size: 12px;
-  letter-spacing: 0.25em;
+  font-size: 11px; /* Slightly smaller for mobile */
+  letter-spacing: 0.15em;
   text-transform: uppercase;
   transition: color 0.3s ease;
 }
@@ -49,19 +51,20 @@ nav {
   MAIN LAYOUT
 ===================== */
 main {
-  padding: 60px 20px;
+  padding: 20px;
   display: flex;
   justify-content: center;
-  float: right;
+  /* Removed float: right; */
 }
 
 .quran-page {
   max-width: 900px;
   width: 100%;
-  padding: 80px 20px;
+  padding: 20px 10px; /* Reduced padding for mobile */
   text-align: center;
   display: flex;
   flex-direction: column;
+  align-items: center; /* Center children horizontally */
 }
 
 /* =====================
@@ -69,27 +72,30 @@ main {
 ===================== */
 
 .quran-page h1 {
-  margin-right: 350px;
-  font-size: 3rem;
-  margin-bottom: 40px;
-  letter-spacing: 0.2em;
-  order: 1;
+  /* Removed margin-right: 350px; */
+  font-size: clamp(1.8rem, 8vw, 3rem); /* Responsive font size */
+  margin-bottom: 30px;
+  letter-spacing: 0.1em;
+  font-family: 'Cinzel', serif; /* Matching your main site heading font */
 }
 
 /* =====================
-  SELECT
+  SELECT BOX
 ===================== */
 
 #surah-select {
-  margin-right: 350px;
-  padding: 12px 20px;
+  /* Removed margin-right: 350px; */
+  width: 100%;
+  max-width: 300px; /* Limits width on desktop */
+  padding: 14px 20px;
   font-size: 1rem;
   border-radius: 8px;
-  border: none;
+  border: 1px solid rgba(255,255,255,0.1);
   background: #1c162d;
   color: white;
-  margin-bottom: 50px;
-  order: 2;
+  margin-bottom: 40px;
+  cursor: pointer;
+  outline: none;
 }
 
 /* =====================
@@ -98,18 +104,129 @@ main {
 
 .ayahs {
   text-align: right;
-  font-size: 1.8rem;
-  line-height: 3;
-  order: 3;
+  font-size: clamp(1.4rem, 5vw, 2.2rem); /* Large for Arabic, but scales down */
+  line-height: 2.2; /* Adjusted for better readability */
+  width: 100%;
+  padding: 0 10px;
 }
 
 .ayahs p {
-  margin-bottom: 24px;
+  margin-bottom: 30px;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 15px;
+  border-radius: 10px;
 }
 
 .ayahs span {
   color: #f4a261;
-  font-size: 1.2rem;
-  margin-left: 8px;
+  font-size: 1rem;
+  margin-left: 12px;
+  border: 1px solid #f4a261;
+  padding: 2px 8px;
+  border-radius: 50%;
+  display: inline-block;
+  line-height: 1;
+}
+/* This styles the actual list that pops out */
+#surah-select option {
+    background-color: #1c162d; /* Matches your select box background */
+    color: white;              /* Makes the text readable */
+    padding: 10px;
 }
 
+/* Optional: Styles the select box when it is focused/clicked */
+#surah-select:focus {
+    outline: 2px solid var(--primary);
+    background-color: #1c162d;
+}
+
+/* =====================
+  MOBILE ADJUSTMENTS
+===================== */
+
+@media (max-width: 600px) {
+  .nav-links {
+    gap: 15px;
+  }
+
+  .nav-links a {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+  }
+  
+  .quran-page {
+    padding-top: 40px;
+  }
+}
+/* =====================
+  MAIN LAYOUT FIX
+===================== */
+main {
+  width: 100%;
+  display: flex;
+  justify-content: center; /* Centering horizontally */
+  padding: 40px 20px;
+  /* REMOVED float: right; */
+}
+
+.quran-page {
+  max-width: 1000px; /* Limits width so lines aren't too long on big monitors */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centers the Title and Dropdown */
+  text-align: center;
+}
+
+/* =====================
+  TITLE & SELECTOR FIX
+===================== */
+
+.quran-page h1 {
+  /* REMOVED margin-right: 350px; */
+  font-family: 'Cinzel', serif;
+  font-size: clamp(2rem, 6vw, 4rem);
+  margin-bottom: 30px;
+  width: 100%; 
+}
+
+#surah-select {
+  /* REMOVED margin-right: 350px; */
+  width: 100%;
+  max-width: 400px; /* Makes the dropdown a nice size */
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  margin-bottom: 50px;
+  cursor: pointer;
+}
+
+/* =====================
+  AYAH BOXES FIX
+===================== */
+
+.ayahs {
+  width: 100%;
+  text-align: right; /* Keeps Arabic right-aligned */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.ayahs p {
+  background: rgba(255, 255, 255, 0.03); /* The subtle box behind the text */
+  padding: 30px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  line-height: 2.5;
+  font-size: 1.8rem;
+  width: 100%; /* Ensures box fills the centered container */
+  transition: transform 0.3s ease;
+}
+
+.ayahs p:hover {
+    background: rgba(255, 255, 255, 0.05);
+    transform: translateY(-5px);
+}
