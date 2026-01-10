@@ -60,7 +60,7 @@ body {
     transition: 0.3s;
 }
 
-.nav a:hover { color: var(--text-light); }
+.nav a:hover { color: #f4a261; }
 
 /* =====================
    AYAH SECTION (serr)
