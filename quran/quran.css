@@ -192,69 +192,57 @@ main {
 main {
   width: 100%;
   display: flex;
-  justify-content: center; /* Centering horizontally */
-  padding: 40px 20px;
-  /* REMOVED float: right; */
+  justify-content: center; /* This centers the whole block on the screen */
+  padding: 40px 0; /* Vertical padding only */
 }
 
 .quran-page {
-  max-width: 1000px; /* Limits width so lines aren't too long on big monitors */
-  width: 100%;
+  width: 95%; /* Use 95% of the screen width */
+  max-width: 1200px; /* Limits it on huge monitors so it doesn't look stretched */
+  margin: 0 auto; /* Extra insurance for centering */
   display: flex;
   flex-direction: column;
-  align-items: center; /* Centers the Title and Dropdown */
+  align-items: center; 
   text-align: center;
 }
 
 /* =====================
-  TITLE & SELECTOR FIX
+  TITLE & SELECTOR WIDTH
 ===================== */
-
 .quran-page h1 {
-  /* REMOVED margin-right: 350px; */
-  font-family: 'Cinzel', serif;
-  font-size: clamp(2rem, 6vw, 4rem);
-  margin-bottom: 30px;
   width: 100%; 
+  font-family: 'Cinzel', serif;
+  font-size: clamp(2.5rem, 8vw, 5rem); /* Made it slightly bigger to fill space */
+  margin-bottom: 40px;
+  text-align: center;
 }
 
 #surah-select {
-  /* REMOVED margin-right: 350px; */
   width: 100%;
-  max-width: 400px; /* Makes the dropdown a nice size */
-  padding: 12px;
+  max-width: 600px; /* Made the search bar wider to fill the space better */
+  height: 60px; /* Made it taller */
+  padding: 0 25px;
+  font-size: 1.2rem;
   background: rgba(255, 255, 255, 0.05);
-  color: white;
   border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 8px;
-  margin-bottom: 50px;
-  cursor: pointer;
+  border-radius: 12px;
+  margin-bottom: 60px;
 }
 
 /* =====================
-  AYAH BOXES FIX
+  AYAH BOXES (Full Width)
 ===================== */
-
 .ayahs {
-  width: 100%;
-  text-align: right; /* Keeps Arabic right-aligned */
+  width: 100%; /* Ensures the boxes go from left to right */
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 25px;
 }
 
 .ayahs p {
-  background: rgba(255, 255, 255, 0.03); /* The subtle box behind the text */
-  padding: 30px;
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  line-height: 2.5;
-  font-size: 1.8rem;
-  width: 100%; /* Ensures box fills the centered container */
-  transition: transform 0.3s ease;
-}
-
-.ayahs p:hover {
-    background: rgba(255, 255, 255, 0.05);
-    transform: translateY(-5px);
+  width: 100%; /* Makes each Ayah box fill the width of the page */
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 15px;
+  text-align: right; /* Keeps Arabic on the right */
 }
