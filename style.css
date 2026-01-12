@@ -107,16 +107,40 @@ body {
   -webkit-text-fill-color: transparent;
   text-shadow: 0 10px 40px rgba(0,0,0,0.6);
 }
-
 /* =====================
-   FOOTER
+   HERO IMAGE BACKDROP
 ===================== */
 
-.footer {
-  text-align: center;
-  padding: 20px;
-  font-size: 12px;
-  color: rgba(255,255,255,0.6);
+.hero-title {
+    position: relative; /* Container for absolute elements */
+    width: 100%;
+    min-height: 400px; /* Gives space for the image to show */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-bg-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: 900px; /* Adjust this to make it bigger or smaller */
+    z-index: -1;      /* Puts image BEHIND the H1 */
+    opacity: 0.9;     /* Makes it subtle so you can read the text */
+    pointer-events: none;
+    
+    /* This fades the edges so it doesn't look like a square box */
+    mask-image: radial-gradient(circle, black 40%, transparent 80%);
+    -webkit-mask-image: radial-gradient(circle, black 40%, transparent 80%);
+}
+
+.hero-title h1 {
+    position: relative;
+    z-index: 2; /* Forces text to the very front */
+    margin: 0;
+    /* Existing font-size and color styles here */
 }
 /* =====================
    MOBILE MEDIA QUERY
@@ -152,5 +176,8 @@ body {
   
   .nav a {
     font-size: 9px;
+  }
+  footer p {
+    text-align: center;
   }
 }
