@@ -163,7 +163,7 @@ nav {
     /* Tasbih Card adjustments */
     .tasbih-card {
         padding: 30px 15px;
-        width: 100%;         /* Uses full width available */
+        width: 80%;         /* Uses full width available */
     }
 
     .counter-number {
