@@ -165,7 +165,7 @@ main {
 
 @media (max-width: 600px) {
     .nav-links {
-        gap: 15px; /* Fixed from 3000px */
+        gap: 15px;
         padding: 10px 20px;
         width: 95%;
         justify-content: space-around;

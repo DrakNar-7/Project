@@ -11,15 +11,27 @@ const dhikrText = document.getElementById('dhikr-text');
 // Initialize display
 counterDisplay.innerText = count;
 
-// Tap functionality
-tapBtn.addEventListener('click', () => {
+// --- FIX: Use 'pointerdown' instead of 'click' ---
+// This stops the mobile browser from waiting to see if you will double-tap (zoom)
+tapBtn.addEventListener('pointerdown', (e) => {
+    e.preventDefault(); // This is the secret to stopping the zoom!
+    
     count++;
     counterDisplay.innerText = count;
     localStorage.setItem('tasbihCount', count);
     
-    // Add a tiny vibration feel
-    tapBtn.style.transform = "scale(0.95)";
-    setTimeout(() => tapBtn.style.transform = "scale(1)", 100);
+    // Visual feedback
+    tapBtn.style.transform = "scale(0.92)";
+    
+    // Optional: Add a real vibration if the phone supports it
+    if (navigator.vibrate) {
+        navigator.vibrate(10); 
+    }
+});
+
+// Reset scale when finger lifts
+tapBtn.addEventListener('pointerup', () => {
+    tapBtn.style.transform = "scale(1)";
 });
 
 // Reset functionality
