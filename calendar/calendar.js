@@ -7,9 +7,21 @@ function renderCalendar() {
     const monthDisplay = document.getElementById('monthDisplay');
     grid.innerHTML = '';
 
-    const today = new Date();
-    const target = new Date(today);
-    target.setDate(today.getDate() + currentOffset * 30);
+    const now = new Date(); // The actual current time
+    const todayParts = new Intl.DateTimeFormat('en-u-ca-islamic-nu-latn', {
+        day: 'numeric',
+        month: 'numeric',
+        year: 'numeric'
+    }).formatToParts(now);
+
+    // Create a key for today to compare
+    const todayDay = todayParts.find(p => p.type === 'day')?.value;
+    const todayMonth = todayParts.find(p => p.type === 'month')?.value;
+    const todayYear = todayParts.find(p => p.type === 'year')?.value;
+    const todayKey = `${todayDay}-${todayMonth}-${todayYear}`;
+
+    const target = new Date(now);
+    target.setDate(now.getDate() + currentOffset * 30);
 
     const monthFmt = new Intl.DateTimeFormat('en-u-ca-islamic', {month:'long', year:'numeric'});
     monthDisplay.textContent = monthFmt.format(target);
@@ -36,14 +48,16 @@ function renderCalendar() {
         const el = document.createElement('div');
         el.className = 'day';
         
-        // --- FIXED SECTION: Removed the <small> tag ---
+        // CHECK IF IT IS TODAY
+        if (key === todayKey) {
+            el.classList.add('today');
+        }
+
         el.innerHTML = `<span>${hijriDay}</span>`;
 
         if (events[key]?.length > 0) {
-            // Only adding the dot now, no extra number at the bottom
             el.innerHTML += `<div class="event-dot"></div>`;
         }
-        // ----------------------------------------------
 
         el.onclick = () => openModal(key);
         grid.appendChild(el);

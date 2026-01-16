@@ -96,7 +96,8 @@ nav {
 .calendar-grid {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    gap: 12px;
+    gap: 15px; /* Increased gap for better circular separation */
+    padding: 10px;
 }
 
 /* Day labels (Sun, Mon, etc) or Date cells */
@@ -130,6 +131,58 @@ nav {
     background: #e07a3f;
     border-radius: 50%;
     margin-top: 4px;
+}
+/* Base style for every day */
+.day {
+    aspect-ratio: 1 / 1; /* Ensures a perfect square */
+    width: 100%;
+    max-width: 60px; /* Adjust based on your preference */
+    margin: 0 auto;  /* Centers the circle in the grid cell */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 50%; /* This creates the circle */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+/* Hover effect stays circular */
+.day:hover {
+    background: rgba(244, 162, 97, 0.2);
+    border-color: #f4a261;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(244, 162, 97, 0.2);
+}
+
+/* Today's Highlight - Circular */
+.day.today {
+    background: #f4a261 !important;
+    color: #1c1433 !important;
+    font-weight: bold;
+    border: none;
+    box-shadow: 0 0 15px rgba(244, 162, 97, 0.5);
+}
+
+.day.today span {
+    color: #1c1433;
+}
+
+/* Adjust the event dot so it doesn't break the circle layout */
+.event-dot {
+    width: 5px;
+    height: 5px;
+    background-color: #f4a261;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 8px; /* Places it inside the bottom of the circle */
+}
+
+.day.today .event-dot {
+    background-color: #1c1433;
 }
 /* =====================
    MODAL STYLES
@@ -308,8 +361,7 @@ button.secondary:hover {
     #gregInput {
         width: 100%; /* Full width input */
     }
-}
-@media screen and (max-width: 768px) {
+
     .event-dot {
         width: 3px;
         height: 3px;
