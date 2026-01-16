@@ -11,7 +11,6 @@ fetch("https://api.alquran.cloud/v1/surah")
       option.textContent = `${surah.number}. ${surah.englishName}`;
       surahSelect.appendChild(option);
     });
-
     loadSurah(1); // Load Al-Fatiha by default
   });
 
