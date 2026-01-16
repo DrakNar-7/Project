@@ -383,3 +383,51 @@ button.secondary:hover {
         margin-top: 2px;
     }
 }
+/* =====================
+   MOBILE CIRCULAR FIXES
+===================== */
+
+@media screen and (max-width: 768px) {
+    .calendar-container {
+        margin: 10px;
+        padding: 15px;
+        border-radius: 20px;
+    }
+
+    .calendar-grid {
+        gap: 8px; /* Smaller gap so circles fit side-by-side */
+        padding: 5px;
+    }
+
+    .day {
+        max-width: 45px; /* Smaller circles for mobile */
+        font-size: 0.85rem;
+    }
+
+    .calendar-header h2 {
+        font-size: 1.2rem;
+    }
+
+    /* Adjust the dot position for smaller circles */
+    .event-dot {
+        bottom: 4px;
+        width: 4px;
+        height: 4px;
+    }
+}
+
+/* For very small devices (iPhone SE, etc.) */
+@media screen and (max-width: 380px) {
+    .calendar-grid {
+        gap: 5px;
+    }
+    
+    .day {
+        max-width: 38px; /* Even smaller for tiny screens */
+        font-size: 0.75rem;
+    }
+
+    .calendar-header h2 {
+        font-size: 1rem;
+    }
+}
