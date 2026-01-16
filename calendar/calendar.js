@@ -8,22 +8,15 @@ function renderCalendar() {
     grid.innerHTML = '';
 
     const today = new Date();
-    // Rough approximation: ~29.53 days per hijri month
     const target = new Date(today);
     target.setDate(today.getDate() + currentOffset * 30);
 
-    // Show month name
     const monthFmt = new Intl.DateTimeFormat('en-u-ca-islamic', {month:'long', year:'numeric'});
     monthDisplay.textContent = monthFmt.format(target);
 
-    // Find approximate start of month
     let start = new Date(target);
     start.setDate(1);
 
-    let day = 1;
-    grid.innerHTML = ''; // clear
-
-    // Simple 6×7 grid (most hijri months fit)
     for (let i = 0; i < 42; i++) {
         const date = new Date(start);
         date.setDate(start.getDate() + i);
@@ -42,11 +35,15 @@ function renderCalendar() {
 
         const el = document.createElement('div');
         el.className = 'day';
+        
+        // --- FIXED SECTION: Removed the <small> tag ---
         el.innerHTML = `<span>${hijriDay}</span>`;
 
         if (events[key]?.length > 0) {
-            el.innerHTML += `<div class="event-dot"></div><small>${events[key].length}</small>`;
+            // Only adding the dot now, no extra number at the bottom
+            el.innerHTML += `<div class="event-dot"></div>`;
         }
+        // ----------------------------------------------
 
         el.onclick = () => openModal(key);
         grid.appendChild(el);
