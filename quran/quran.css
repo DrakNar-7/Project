@@ -1,5 +1,5 @@
 /* =====================
-   QURAN ONLY THEME
+  QURAN ONLY THEME
 ===================== */
 
 * {
@@ -9,7 +9,6 @@
 }
 
 body {
-  /* Using your specific site colors */
   background: radial-gradient(circle at top, #1c1433, #0b0815);
   color: white;
   font-family: 'Amiri', serif;
@@ -22,56 +21,58 @@ body {
 ===================== */
 
 nav {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    padding: 20px 0;
-    background: transparent; /* Let the body gradient show through */
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+  background: transparent;
 }
 
 .nav-links {
-    list-style: none;
-    display: flex;
-    gap: 30px;
-    padding: 12px 32px;
-    background: rgba(255, 255, 255, 0.04);
-    border-radius: 999px;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  padding: 12px 32px;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 999px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
 }
 
 .nav-links a {
-    text-decoration: none;
-    color: rgba(255, 255, 255, 0.6);
-    font-size: 12px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    transition: 0.3s;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  transition: 0.3s;
 }
 
-.nav-links a:hover, .nav-links a.active {
-    color: #f4a261; /* Using your primary gold/orange color */
+.nav-links a:hover,
+.nav-links a.active {
+  color: #f4a261;
 }
 
 /* =====================
   MAIN LAYOUT
 ===================== */
+
 main {
-  padding: 20px;
+  width: 100%;
   display: flex;
   justify-content: center;
-  /* Removed float: right; */
+  padding: 40px 0;
 }
 
 .quran-page {
-  max-width: 900px;
-  width: 100%;
-  padding: 20px 10px; /* Reduced padding for mobile */
-  text-align: center;
+  width: 95%;
+  max-width: 1200px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
-  align-items: center; /* Center children horizontally */
+  align-items: center;
+  text-align: center;
 }
 
 /* =====================
@@ -79,11 +80,11 @@ main {
 ===================== */
 
 .quran-page h1 {
-  /* Removed margin-right: 350px; */
-  font-size: clamp(1.8rem, 8vw, 3rem); /* Responsive font size */
-  margin-bottom: 30px;
+  width: 100%;
+  font-family: 'Cinzel', serif;
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  margin-bottom: 40px;
   letter-spacing: 0.1em;
-  font-family: 'Cinzel', serif; /* Matching your main site heading font */
 }
 
 /* =====================
@@ -91,158 +92,107 @@ main {
 ===================== */
 
 #surah-select {
-    width: 90%; /* Wider on mobile */
-    max-width: 500px; /* Slightly bigger on desktop */
-    padding: 16px 20px; /* Bigger touch area */
-    font-size: 1.1rem;
-    border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    background: rgba(255, 255, 255, 0.05); /* Glass effect */
-    color: white;
-    margin-bottom: 50px;
-    cursor: pointer;
-    outline: none;
-    backdrop-filter: blur(5px);
-    transition: all 0.3s ease;
-    appearance: none; /* Custom arrow look */
-    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='orange' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
-    background-repeat: no-repeat;
-    background-position: right 1rem center;
-    background-size: 1em;
-}
-
-#surah-select:focus {
-    border-color: #f4a261;
-    background: rgba(255, 255, 255, 0.08);
-    box-shadow: 0 0 20px rgba(244, 162, 97, 0.2);
-}
-
-/* =====================
-  AYAH TEXT
-===================== */
-
-.ayahs {
-  text-align: right;
-  font-size: clamp(1.4rem, 5vw, 2.2rem); /* Large for Arabic, but scales down */
-  line-height: 2.2; /* Adjusted for better readability */
   width: 100%;
-  padding: 0 10px;
-}
-
-.ayahs p {
-  margin-bottom: 30px;
-  background: rgba(255, 255, 255, 0.03);
-  padding: 15px;
-  border-radius: 10px;
-}
-
-.ayahs span {
-  color: #f4a261;
-  font-size: 1rem;
-  margin-left: 12px;
-  border: 1px solid #f4a261;
-  padding: 2px 8px;
-  border-radius: 50%;
-  display: inline-block;
-  line-height: 1;
-}
-/* This styles the actual list that pops out */
-#surah-select option {
-    background-color: #1c162d; /* Matches your select box background */
-    color: white;              /* Makes the text readable */
-    padding: 10px;
-}
-
-/* Optional: Styles the select box when it is focused/clicked */
-#surah-select:focus {
-    outline: 2px solid var(--primary);
-    background-color: #1c162d;
-}
-
-/* =====================
-  MOBILE ADJUSTMENTS
-===================== */
-
-@media (max-width: 600px) {
-    .nav-links {
-        gap: 15px;
-        padding: 10px 20px;
-        width: 95%;
-        justify-content: space-around;
-    }
-
-    .nav-links a {
-        font-size: 10px;
-        letter-spacing: 0.1em;
-    }
-
-    #surah-select {
-        padding: 18px; /* Even bigger on mobile for easy tapping */
-        font-size: 1.2rem;
-        width: 100%;
-    }
-
-    .quran-page h1 {
-        font-size: 2.2rem;
-    }
-}
-/* =====================
-  MAIN LAYOUT FIX
-===================== */
-main {
-  width: 100%;
-  display: flex;
-  justify-content: center; /* This centers the whole block on the screen */
-  padding: 40px 0; /* Vertical padding only */
-}
-
-.quran-page {
-  width: 95%; /* Use 95% of the screen width */
-  max-width: 1200px; /* Limits it on huge monitors so it doesn't look stretched */
-  margin: 0 auto; /* Extra insurance for centering */
-  display: flex;
-  flex-direction: column;
-  align-items: center; 
-  text-align: center;
-}
-
-/* =====================
-  TITLE & SELECTOR WIDTH
-===================== */
-.quran-page h1 {
-  width: 100%; 
-  font-family: 'Cinzel', serif;
-  font-size: clamp(2.5rem, 8vw, 5rem); /* Made it slightly bigger to fill space */
-  margin-bottom: 40px;
-  text-align: center;
-}
-
-#surah-select {
-  width: 100%;
-  max-width: 600px; /* Made the search bar wider to fill the space better */
-  height: 60px; /* Made it taller */
+  max-width: 600px;
+  height: 60px;
   padding: 0 25px;
   font-size: 1.2rem;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
   margin-bottom: 60px;
+  cursor: pointer;
+  outline: none;
+  backdrop-filter: blur(5px);
+  transition: all 0.3s ease;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='orange' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1em;
+}
+
+#surah-select:focus {
+  border-color: #f4a261;
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 20px rgba(244, 162, 97, 0.2);
+}
+
+#surah-select option {
+  background-color: #1c162d;
+  color: white;
+  padding: 10px;
 }
 
 /* =====================
-  AYAH BOXES (Full Width)
+  AYAH TEXT (PAGE VIEW)
 ===================== */
+
 .ayahs {
-  width: 100%; /* Ensures the boxes go from left to right */
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
+  width: 100%;
+  max-width: 900px; /* Limits width for better readability */
+  background: rgba(255, 255, 255, 0.03);
+  padding: 50px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  
+  /* Key changes for page flow */
+  text-align: justify;
+  direction: rtl; /* Ensures Arabic flows right-to-left */
+  font-size: clamp(1.8rem, 5vw, 2.8rem);
+  line-height: 2.5;
 }
 
-.ayahs p {
-  width: 100%; /* Makes each Ayah box fill the width of the page */
-  padding: 40px;
-  background: rgba(255, 255, 255, 0.03);
-  border-radius: 15px;
-  text-align: right; /* Keeps Arabic on the right */
+.ayah-container {
+  display: inline; /* Keeps everything on the same line */
+}
+
+.ayah-number {
+  color: #f4a261;
+  font-family: 'Amiri', serif;
+  font-size: 1.2rem;
+  margin: 0 8px;
+  border: 1px solid rgba(244, 162, 97, 0.5);
+  padding: 2px 10px;
+  border-radius: 50%;
+  vertical-align: middle;
+  display: inline-block;
+  user-select: none;
+}
+/* =====================
+   MOBILE NAVIGATION
+===================== */
+
+@media (max-width: 768px) {
+  nav {
+    padding: 10px 0;
+  }
+
+  .nav-links {
+    width: 90%; /* Make it span most of the screen width */
+    gap: 15px;  /* Space between links */
+    padding: 15px 20px;
+    flex-wrap: wrap; /* Allows links to wrap to a second line if needed */
+    justify-content: center;
+    border-radius: 20px; /* Slightly less rounded for a "card" look */
+  }
+
+  .nav-links a {
+    font-size: 14px; /* Larger text for readability */
+    letter-spacing: 0.1em;
+    padding: 5px 10px; /* Larger touch target for fingers */
+  }
+}
+
+/* For very small phones */
+@media (max-width: 480px) {
+  .nav-links {
+    gap: 10px;
+  }
+  
+  .nav-links a {
+    font-size: 12px;
+    font-weight: bold;
+  }
 }

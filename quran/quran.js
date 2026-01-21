@@ -13,18 +13,30 @@ fetch("https://api.alquran.cloud/v1/surah")
     });
     loadSurah(1); // Load Al-Fatiha by default
   });
-
 // Load Surah content
 function loadSurah(number) {
   fetch(`https://api.alquran.cloud/v1/surah/${number}`)
     .then(res => res.json())
     .then(data => {
-      ayahsDiv.innerHTML = "";
+      ayahsDiv.innerHTML = ""; // Clear current surah
+      
+      // Create a single container for all text
+      const surahContainer = document.createElement("div");
+      surahContainer.className = "ayah-container";
+
       data.data.ayahs.forEach(ayah => {
-        const p = document.createElement("p");
-        p.innerHTML = `${ayah.text} <span>﴿${ayah.numberInSurah}﴾</span>`;
-        ayahsDiv.appendChild(p);
+        // Create a span for the text and number so they don't break lines
+        const ayahSpan = document.createElement("span");
+        
+        // Remove the "Bismillah" from the first ayah if it's not Surah Al-Fatiha 
+        // and not Surah At-Tawbah (Optional logic)
+        let text = ayah.text;
+        
+        ayahSpan.innerHTML = `${text} <span class="ayah-number">﴿${ayah.numberInSurah}﴾</span> `;
+        surahContainer.appendChild(ayahSpan);
       });
+
+      ayahsDiv.appendChild(surahContainer);
     });
 }
 

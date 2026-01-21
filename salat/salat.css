@@ -168,14 +168,30 @@ nav a:hover::after {
 }
 
 /* Mobile Responsive */
+/* Mobile Responsive Improvements */
 @media (max-width: 768px) {
   header {
     flex-direction: column;
-    gap: 15px;
-    padding: 20px;
+    gap: 20px;
+    padding: 30px 20px;
   }
   
   nav ul {
-    gap: 10px;
+    gap: 15px;
+    flex-wrap: wrap; /* Allows links to wrap to a second line if needed */
+    justify-content: center;
+  }
+
+  nav a {
+    font-size: 15px;      /* Increased from 12px for readability */
+    letter-spacing: 0.1em; /* Reduced slightly to save space on small screens */
+    padding: 8px 12px;    /* Adds a larger invisible "tap" area around the text */
+    display: inline-block;
+  }
+
+  /* Adjust the prayer list container for smaller screens */
+  .prayer-times {
+    padding: 25px;
+    width: 90%;
   }
 }
