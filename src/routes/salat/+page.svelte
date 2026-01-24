@@ -52,7 +52,7 @@
 			<li><a href="/tasbih">Tasbih</a></li>
 			<li><a href="/contact">Contact Us</a></li>
 		</ul>
-	</header>
+	</nav>
 </header>
 <main class="prayer-wrapper">
 	<h2 class="prayer-title">Prayer Times</h2>
