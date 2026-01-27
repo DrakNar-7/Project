@@ -1,10 +1,20 @@
-<script>
+<script lang="ts">
 	import { onMount } from 'svelte';
 
-	let surahs = [];
-	let selectedSurah = 1;
-	let ayahs = [];
-	let loading = true;
+	type Surah = {
+		number: number;
+		englishName: string;
+	};
+
+	type Ayah = {
+		text: string;
+		number: number;
+	};
+
+	let surahs: Surah[] = [];
+	let selectedSurah: number = 1;
+	let ayahs: Ayah[] = [];
+	let loading: boolean = true;
 
 	onMount(async () => {
 		try {
@@ -17,12 +27,12 @@
 		}
 	});
 
-	async function loadSurah(number) {
+	async function loadSurah(number: number): Promise<void> {
 		loading = true;
 		try {
 			const res = await fetch(`https://api.alquran.cloud/v1/surah/${number}`);
 			const data = await res.json();
-			ayahs = data.data.ayahs.map(ayah => ({
+			ayahs = data.data.ayahs.map((ayah: any) => ({
 				text: ayah.text,
 				number: ayah.numberInSurah
 			}));
@@ -33,8 +43,9 @@
 		}
 	}
 
-	function handleSurahChange(event) {
-		selectedSurah = parseInt(event.target.value);
+	function handleSurahChange(event: Event): void {
+		const target = event.target as HTMLSelectElement;
+		selectedSurah = parseInt(target.value);
 		loadSurah(selectedSurah);
 	}
 </script>
@@ -104,6 +115,7 @@
 		background: transparent;
 	}
 
+
 	.nav-links {
 		list-style: none;
 		display: flex;
@@ -125,8 +137,7 @@
 		transition: 0.3s;
 	}
 
-	.nav-links a:hover,
-	.nav-links a.active {
+	.nav-links a:hover {
 		color: #f4a261;
 	}
 

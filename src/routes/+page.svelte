@@ -19,6 +19,7 @@
 				<li><a href="/donation">donations</a></li>
 				<li><a href="/tasbih">Tasbih</a></li>
 				<li><a href="/contact">contact us</a></li>
+				<li><a href="/test">test</a></li>	
 			</ul>
 		</nav>
 	</header>
@@ -157,6 +158,7 @@
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%);
+		height: 100%;
 		width: 100%;
 		max-width: 900px;
 		z-index: -1;
